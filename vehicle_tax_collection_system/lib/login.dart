@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:vehicle_tax_collection_system/navigation.dart';
 import 'package:vehicle_tax_collection_system/register.dart';
 
-import 'homePage.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -10,6 +10,9 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  final controllerEmail = TextEditingController();
+  final controllerPassword = TextEditingController();
+  bool _obscureText= true;
 
   @override
   Widget build(BuildContext context) {
@@ -41,13 +44,17 @@ class _LoginState extends State<Login> {
                           child: Column(
                             children: [
                               TextFormField(
+                                  controller: controllerEmail,
                                   decoration: InputDecoration(
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                                        borderSide: BorderSide(color: Colors.grey),
-                                      ),
-                                      labelText: 'Email Address',
-                                    prefixIcon: Icon(Icons.email,color: Colors.black),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(30.0)),
+                                      borderSide: BorderSide(
+                                          color: Colors.grey),
+                                    ),
+                                    labelText: 'Email Address',
+                                    prefixIcon: Icon(
+                                        Icons.email, color: Colors.black),
                                   ),
                                   validator: (value) {
                                     if (RegExp(
@@ -61,15 +68,27 @@ class _LoginState extends State<Login> {
                               ),
                               SizedBox(height: 10),
                               TextFormField(
-                                obscureText: true,
+                                 obscureText: _obscureText,
+                                controller: controllerPassword,
                                 decoration: InputDecoration(
                                   border: OutlineInputBorder(
                                     borderRadius:
                                     BorderRadius.all(Radius.circular(30.0)),
                                     borderSide: BorderSide(color: Colors.black),
                                   ),
-                                  prefixIcon: Icon(Icons.warning_rounded,color: Colors.black),
+                                  prefixIcon: Icon(Icons.vpn_key,
+                                      color: Colors.black),
                                   labelText: 'Password',
+                                  suffixIcon: GestureDetector(
+                                    onTap: (){
+                                      setState(() {
+                                        _obscureText = !_obscureText;
+                                      });
+                                    },
+                                    child: Icon(
+                                      _obscureText ? Icons.visibility  : Icons.visibility_off,color: Colors.black,
+                                    ),
+                                  ),
                                 ),
                                 validator: (value) {
                                   if(value.isEmpty){
@@ -91,7 +110,8 @@ class _LoginState extends State<Login> {
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                                builder: (context) => Register()));
+                                                builder: (context) =>
+                                                    Register()));
                                       },
                                       child: Text(
                                         'Register Now',
@@ -112,9 +132,10 @@ class _LoginState extends State<Login> {
                               ),
                               SizedBox(height: 15.0),
                               InkWell(
-                                onTap: (){
+                                onTap: () {
                                   if (formkey.currentState.validate()) {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                                    Navigator.push(context, MaterialPageRoute(
+                                        builder: (context) => Navigation()));
                                   } else {
                                     print("Not Validated");
                                   }

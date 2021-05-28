@@ -134,9 +134,6 @@ class _RegisterState extends State<Register> {
                       Expanded(
                         child:
                         DropdownButtonFormField<String>(
-                          validator: (value)=>
-                            value == null ?   'Choose your Location' :  null,
-
                           icon: null,
                           iconSize: 0.0,
                           isExpanded: true,
@@ -210,7 +207,7 @@ class _RegisterState extends State<Register> {
                   ),
                   obscureText: true,
                   validator: (value) {
-                    confirmPass=value;
+                    confirmPass = value;
                     if(value.isEmpty){
                       return "Required ";
                     }else if(value.length<6) {
@@ -243,6 +240,7 @@ class _RegisterState extends State<Register> {
                 ),
                 SizedBox(height: 15,),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     InkWell(
                       onTap: (){
@@ -262,7 +260,6 @@ class _RegisterState extends State<Register> {
                     ),
                   ],
                 ),
-                Text(dateController.text)
 
               ],
             ),
