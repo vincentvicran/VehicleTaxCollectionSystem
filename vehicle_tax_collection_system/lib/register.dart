@@ -134,13 +134,9 @@ class _RegisterState extends State<Register> {
                       Expanded(
                         child:
                         DropdownButtonFormField<String>(
-                          icon: null,
                           iconSize: 0.0,
                           isExpanded: true,
-                          // focusColor:Colors.white,
                           value: _chosenValue,
-                          //elevation: 5,
-                          // style: TextStyle(color: Colors.white),
                           iconEnabledColor:Colors.black,
                           items: <String>[
                             'Kathmandu','Lalitpur' , 'Bhaktapur', 'Dhankuta' , 'Ilam' ,'Jhapa' ,'Khotang' ,'Morang' ,'Okhaldhunga' ,'Panchthar' ,'Sankhuwasabha', 'Solukhumbu',

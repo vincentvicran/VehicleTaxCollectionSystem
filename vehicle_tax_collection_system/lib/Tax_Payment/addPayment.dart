@@ -42,20 +42,23 @@ class _AddPaymentState extends State<AddPayment> {
                 },
               ),
             ),
-            TextFormField(
-              controller: paymentAmount,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  borderSide: BorderSide(color: Colors.grey),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextFormField(
+                controller: paymentAmount,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
+                  prefixIcon: Icon(Icons.attach_money_outlined, color: Colors.black,),
+                  labelText: 'Payment Amount',
                 ),
-                prefixIcon: Icon(Icons.attach_money_outlined, color: Colors.black,),
-                labelText: 'Payment Amount',
+                keyboardType: TextInputType.number,
+                inputFormatters: [
+                  FilteringTextInputFormatter.digitsOnly
+                ],
               ),
-              keyboardType: TextInputType.number,
-              inputFormatters: [
-                FilteringTextInputFormatter.digitsOnly
-              ],
             ),
 
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:vehicle_tax_collection_system/Settings/aboutUs.dart';
 import 'package:vehicle_tax_collection_system/Settings/password.dart';
 import 'package:vehicle_tax_collection_system/login.dart';
@@ -75,10 +76,7 @@ class _SettingsState extends State<Settings> {
               padding: const EdgeInsets.all(5.0),
               child: InkWell(
                 onTap: () {
-                  // Navigator.pushAndRemoveUntil(
-                  //     context,
-                  //     MaterialPageRoute(builder: (BuildContext context) => Login()));
-
+                  Fluttertoast.showToast(msg: "Logged Out Successful");
                   Navigator.pushAndRemoveUntil(context,
                   MaterialPageRoute(builder: (BuildContext context) => Login()),
                   (Route<dynamic> route) => false);

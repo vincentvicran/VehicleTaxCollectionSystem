@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.diwashda.vehicle_tax_collection_system">
    <application
-        android:label="vehicle_tax_collection_system"
+       android:requestLegacyExternalStorage="true"
+        android:label="Vehicle Tax Collection System"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
